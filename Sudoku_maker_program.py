@@ -1,9 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import copy
-#from numba import jit
 
-#@jit()
+
 def checker(array):
     """Checks if the sudoku is correctly filled"""
     #Checks rows and columns
@@ -17,7 +16,6 @@ def checker(array):
                 return False
     return True
 
-#@jit()
 def chooser(s_index,r_index,c_index):
     temp = list(set.intersection(set(sq[s_index]),set(row[r_index]),set(col[c_index])))
     if not temp:
@@ -90,7 +88,6 @@ def puzzle_maker():
             col.append([1,2,3,4,5,6,7,8,9])
     return puzzle
 
-#@jit()
 def position_num(grid):
     """Returns the the positions of all empty grid spaces and their respective possible numbers"""
     x_pos = []
@@ -113,7 +110,6 @@ def position_num(grid):
                 y_pos.append(i)
     return y_pos,x_pos,valid_nums
 
-#@jit()
 def valid(grid,x,y,n):
     """Determines if the number, n, fits in coordinate (x,y) on grid"""
     # Check row
@@ -134,7 +130,6 @@ def valid(grid,x,y,n):
                 return False
     return True
 
-#@jit()
 def empty(grid):
     """Finds empty parts in grid, returns false if full and true if empty spot"""
     for i in range(9):
@@ -143,7 +138,6 @@ def empty(grid):
                 return True
     return False
 
-#@jit()
 def solver(array):
     """Finds every solution to a sudoku via the backtracking algorithm, and returns True if only one solution exists"""
     grid = np.copy(array)
@@ -191,8 +185,7 @@ def solver(array):
 
     return True
 
-# Remove mirror pairs
-#@jit()
+# Remove (mirror) pairs
 def remove(grid):
     post_grid = np.copy(grid)
     pairs = []
@@ -232,7 +225,7 @@ j_lim = 20
 i_lim = 250
 print("Working!")
 print("")
-while biggest_num < 81 - int(clues): # Run for a while
+while biggest_num < 81 - int(clues): # Run until max number of clues reached
     sudo,num = remove(puzzle)
     if num > biggest_num:
         biggest_num = num

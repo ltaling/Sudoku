@@ -255,7 +255,7 @@ for i in range(9):
             ax.axhline(pos_y[j],color='black',linewidth=1)
 ax.tick_params(bottom=False,left=False,labelbottom=False,labelleft=False)
 plt.title("Puzzle",size=30)
-plt.savefig("Soduku(prog)_Puzzle_{}_nums.pdf".format(81-biggest_num))
+plt.savefig("Sudoku_Puzzle_{}_nums.pdf".format(81-biggest_num))
 #plt.show()
 
 fig, ax = plt.subplots()
@@ -274,7 +274,7 @@ for i in range(9):
             ax.axhline(pos_y[j],color='black',linewidth=1)
 ax.tick_params(bottom=False,left=False,labelbottom=False,labelleft=False)
 plt.title("Solution",size=30)
-plt.savefig("Soduku(prog)_Solution_{}_nums.pdf".format(81-biggest_num))
+plt.savefig("Sudoku_Solution_{}_nums.pdf".format(81-biggest_num))
 #plt.show()
 
 print("Sudoku with {} numbers made!".format(81-biggest_num))
